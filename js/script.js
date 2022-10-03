@@ -43,3 +43,15 @@ mostrarGato();
 //Con el uso de objetos se implementaría otro tipo de función para construir un objeto llamado Gato
 //y cuando se mueta meter HTML en el JS, esto devolvería una imagen del gato que se elija
 //Sin una constante do while o while, sino con un botón.
+
+//Ignorar este código
+
+// function crearMascota (nombre, edad, color){
+//     this.nombre=nombre;
+//     this.edad=edad;
+//     this.color=color
+// }
+// const lena = new crearMascota("Lena",2,"Negra")
+// const roger = new crearMascota("Roger",8,"Negro")
+// const killi = new crearMascota("Killi",2,"Tricolor")
+
