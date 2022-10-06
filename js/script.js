@@ -44,7 +44,7 @@ mostrarGato();
 //y cuando se mueta meter HTML en el JS, esto devolvería una imagen del gato que se elija
 //Sin una constante do while o while, sino con un botón.
 
-//Ignorar este código
+//Ignorar este código, después se eliminará
 //CÓDIGO OBSOLETO DE OBJETOS
 // function crearMascota (nombre, edad, color){
 //     this.nombre=nombre;
@@ -70,12 +70,20 @@ class creadorMascotas{
 }
 const mascotas = [];
 
-mascotas.push(new creadorMascotas("Lena", "2 años", "Negra", "3.200"));
+mascotas.push(new creadorMascotas("Lena", "2 años", "Negro", "3.200"));
 mascotas.push(new creadorMascotas("Roger", "8 años", "Negro", "7.800"));
 mascotas.push(new creadorMascotas("Killi", "2 años", "Tricolor", "3.800"));
 
+console.log(mascotas[0].nombre)
 console.log(mascotas[1].nombre)
-/*
-for(const mascota of mascotas){
-    console.log(this.mascota.nombre);
-}*/
+console.log(mascotas[2].nombre)
+
+do{
+    buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
+if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
+    alert("Elegiste a "+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.")
+} else if ((buscarGato == "ROGER") || (buscarGato == "Roger" || (buscarGato == "roger"))){
+    alert("Elegiste a "+mascotas[1].nombre+" Una gata de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.")
+} else if ((buscarGato == "KILLI") || (buscarGato == "Killi" || (buscarGato == "killi"))){
+    alert("Elegiste a "+mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
+}}while (buscarGato != "FIN")
