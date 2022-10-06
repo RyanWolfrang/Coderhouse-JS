@@ -34,6 +34,8 @@ function mostrarGato(){
             alert("Elegiste a "+roger+". Es un gato de color "+colorRoger+" con "+edadRoger+" de edad." );
         }else if((pedirGato == "killi") || (pedirGato == "Killi")){
             alert("Elegiste a "+killi+". Es una gata de color "+colorKilli+" con "+edadKilli+" de edad." );
+        }else if(pedirGato == undefined){
+            alert("Input invalido")
         }
     }while(pedirGato != "ESC")
 }
@@ -43,17 +45,6 @@ mostrarGato();
 //Con el uso de objetos se implementaría otro tipo de función para construir un objeto llamado Gato
 //y cuando se mueta meter HTML en el JS, esto devolvería una imagen del gato que se elija
 //Sin una constante do while o while, sino con un botón.
-
-//Ignorar este código, después se eliminará
-//CÓDIGO OBSOLETO DE OBJETOS
-// function crearMascota (nombre, edad, color){
-//     this.nombre=nombre;
-//     this.edad=edad;
-//     this.color=color
-// }
-// const lena = new crearMascota("Lena","2","Negra")
-// const roger = new crearMascota("Roger","8","Negro")
-// const killi = new crearMascota("Killi","2","Tricolor")
 
 //Código el cual se usaría actualmente para realizar ARRAYS de cada gato.
 
@@ -79,11 +70,35 @@ console.log(mascotas[1].nombre)
 console.log(mascotas[2].nombre)
 
 do{
-    buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
+    let buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
 if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
     alert("Elegiste a "+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.")
 } else if ((buscarGato == "ROGER") || (buscarGato == "Roger" || (buscarGato == "roger"))){
-    alert("Elegiste a "+mascotas[1].nombre+" Una gata de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.")
+    alert("Elegiste a "+mascotas[1].nombre+" Un gato de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.")
 } else if ((buscarGato == "KILLI") || (buscarGato == "Killi" || (buscarGato == "killi"))){
     alert("Elegiste a "+mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
+} else if ((buscarGato == "TODOS") || (buscarGato == "Todos" || (buscarGato == "todos"))){
+    alert("¡Elegiste a todos! ahí van: \n"+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.\n"+
+    mascotas[1].nombre+" Una gata de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.\n"+
+    mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
+} else {
+    alert("Input inválido. Intentá de nuevo")
 }}while (buscarGato != "FIN")
+
+
+//Esta iteración es lo que se usaría con DOM para no tener un do while todo turbio.
+/*
+let buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
+if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
+    alert("Elegiste a "+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.")
+} else if ((buscarGato == "ROGER") || (buscarGato == "Roger" || (buscarGato == "roger"))){
+    alert("Elegiste a "+mascotas[1].nombre+" Un gato de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.")
+} else if ((buscarGato == "KILLI") || (buscarGato == "Killi" || (buscarGato == "killi"))){
+    alert("Elegiste a "+mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
+} else if ((buscarGato == "TODOS") || (buscarGato == "Todos" || (buscarGato == "todos"))){
+    alert("¡Elegiste a todos! ahí van: \n"+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.\n"+
+    mascotas[1].nombre+" Una gata de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.\n"+
+    mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
+} else {
+    alert("Input inválido. Intentá de nuevo")
+}*/
