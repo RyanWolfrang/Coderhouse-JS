@@ -51,7 +51,20 @@ mostrarGato();
 //     this.edad=edad;
 //     this.color=color
 // }
-// const lena = new crearMascota("Lena",2,"Negra")
-// const roger = new crearMascota("Roger",8,"Negro")
-// const killi = new crearMascota("Killi",2,"Tricolor")
+// const lena = new crearMascota("Lena","2","Negra")
+// const roger = new crearMascota("Roger","8","Negro")
+// const killi = new crearMascota("Killi","2","Tricolor")
 
+class creadorMascotas{
+    constructor(nombre, edad, color, peso){
+        this.nombre = nombre.toUpperCase();
+        this.edad = edad;
+        this.color = color;
+        this.peso = parseFloat(peso);
+    }
+}
+const mascotas = [];
+mascotas.push(new creadorMascotas("Lena", "2 años", "Negra", "3.200"));
+mascotas.push(new creadorMascotas("Roger", "8 años", "Negro", "7.800"));
+mascotas.push(new creadorMascotas("Killi", "2 años", "Tricolor", "3.800"));
+console.log(mascotas);
