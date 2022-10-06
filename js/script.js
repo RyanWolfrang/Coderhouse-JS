@@ -45,7 +45,7 @@ mostrarGato();
 //Sin una constante do while o while, sino con un botón.
 
 //Ignorar este código
-
+//CÓDIGO OBSOLETO DE OBJETOS
 // function crearMascota (nombre, edad, color){
 //     this.nombre=nombre;
 //     this.edad=edad;
@@ -55,8 +55,13 @@ mostrarGato();
 // const roger = new crearMascota("Roger","8","Negro")
 // const killi = new crearMascota("Killi","2","Tricolor")
 
+//Código el cual se usaría actualmente para realizar ARRAYS de cada gato.
+
+let contadorID = 1;
+
 class creadorMascotas{
     constructor(nombre, edad, color, peso){
+        this.id = contadorID++
         this.nombre = nombre.toUpperCase();
         this.edad = edad;
         this.color = color;
@@ -64,7 +69,13 @@ class creadorMascotas{
     }
 }
 const mascotas = [];
+
 mascotas.push(new creadorMascotas("Lena", "2 años", "Negra", "3.200"));
 mascotas.push(new creadorMascotas("Roger", "8 años", "Negro", "7.800"));
 mascotas.push(new creadorMascotas("Killi", "2 años", "Tricolor", "3.800"));
-console.log(mascotas);
+
+console.log(mascotas[1].nombre)
+/*
+for(const mascota of mascotas){
+    console.log(this.mascota.nombre);
+}*/
