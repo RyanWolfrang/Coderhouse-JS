@@ -1,46 +1,15 @@
-for (i=1;i<=3;i++){
-    var user = prompt("Ingrese su nombre de usuario.");
-    var pass = prompt("Ingrese su contraseña.");
-    if ((user=="admin")&&(pass=="admin") || (user=="persona")&&(pass=="random")){
-        alert("Bienvenido " + user);
-        break;
-    }else{
-        alert("Usuario o contraseña equivocados. Te quedan "+(3-i)+" intentos");
-    }
-}
+//Login temporalmente inhabilitado
 
-const lena = "Lena"
-const roger = "Roger"
-const killi = "Killi"
-
-let colorLena = "negro"
-let colorRoger = "negro"
-let colorKilli = "tricolor"
-
-let edadLena = "dos años"
-let edadRoger = "ocho años"
-let edadKilli = "dos años"
-
-
-function mostrarGato(){
-    do{
-        //Recibir el nombre del gato
-        pedirGato = prompt("Escriba aquí un nombre de nuestros gatos para obtener una leve descripción de ellos. (Lena / Roger / Killi). Escriba 'ESC' para cerrar.")
-        //Mostrar una leve descripción del gato, no se tienen que hacer tantas constantes y variables
-        //Con el uso de objetos.
-        if((pedirGato == "lena") || (pedirGato == "Lena")){
-            alert("Elegiste a "+lena+". Es una gata de color "+colorLena+" con "+edadLena+" de edad." );
-        }else if((pedirGato == "roger") || (pedirGato == "Roger")){
-            alert("Elegiste a "+roger+". Es un gato de color "+colorRoger+" con "+edadRoger+" de edad." );
-        }else if((pedirGato == "killi") || (pedirGato == "Killi")){
-            alert("Elegiste a "+killi+". Es una gata de color "+colorKilli+" con "+edadKilli+" de edad." );
-        }else if(pedirGato == undefined){
-            alert("Input invalido")
-        }
-    }while(pedirGato != "ESC")
-}
-
-mostrarGato();
+// for (i=1;i<=3;i++){
+//     var user = prompt("Ingrese su nombre de usuario.");
+//     var pass = prompt("Ingrese su contraseña.");
+//     if ((user=="admin")&&(pass=="admin") || (user=="persona")&&(pass=="random")){
+//         alert("Bienvenido " + user);
+//         break;
+//     }else{
+//         alert("Usuario o contraseña equivocados. Te quedan "+(3-i)+" intentos");
+//     }
+// }
 
 //Con el uso de objetos se implementaría otro tipo de función para construir un objeto llamado Gato
 //y cuando se mueta meter HTML en el JS, esto devolvería una imagen del gato que se elija
@@ -53,7 +22,7 @@ let contadorID = 1;
 class creadorMascotas{
     constructor(nombre, edad, color, peso){
         this.id = contadorID++
-        this.nombre = nombre.toUpperCase();
+        this.nombre = nombre;
         this.edad = edad;
         this.color = color;
         this.peso = parseFloat(peso);
@@ -84,6 +53,31 @@ if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
 }}while (buscarGato != "FIN")
 
 
+//Filtrar por color de gat
+//Gatos negros
+const filtrarPorColorN = mascotas.filter((mascota) => mascota.color == "Negro");
+console.log(filtrarPorColorN);
+
+//Gatos tricolor
+const filtrarPorColorT = mascotas.filter((mascota) => mascota.color == "Tricolor");
+console.log(filtrarPorColorT);
+
+//Gatos grises
+const filtrarPorColorG = mascotas.filter((mascota) => mascota.color == "Gris");
+console.log(filtrarPorColorG);
+
+//Gatos blancos y negros
+const filtrarPorColorBN = mascotas.filter((mascota) => mascota.color == "Blanco y negro");
+console.log(filtrarPorColorBN);
+
+//Más jovenes a más viejos
+mascotas.sort((a,b) => a.edad - b.edad);
+console.log(mascotas);
+
+//Más viejos a jovenes
+mascotas.sort((a,b) => b.edad - a.edad);
+console.log(mascotas);
+
 //Esta iteración es lo que se usaría con DOM para no tener un do while todo turbio.
 /*
 let buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
@@ -100,21 +94,3 @@ if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
 } else {
     alert("Input inválido. Intentá de nuevo")
 }*/
-
-//Filtrar por color de gato
-const filtrarPorColorN = mascotas.filter((mascota) => mascota.color == "Negro");
-console.log(filtrarPorColorN);
-const filtrarPorColorT = mascotas.filter((mascota) => mascota.color == "Tricolor");
-console.log(filtrarPorColorT);
-const filtrarPorColorG = mascotas.filter((mascota) => mascota.color == "Gris");
-console.log(filtrarPorColorG);
-const filtrarPorColorBN = mascotas.filter((mascota) => mascota.color == "Blanco y negro");
-console.log(filtrarPorColorBN);
-
-//Más jovenes a más viejos
-mascotas.sort((a,b) => a.edad - b.edad);
-console.log(mascotas);
-
-//Más viejos a jovenes
-mascotas.sort((a,b) => b.edad - a.edad);
-console.log(mascotas);
