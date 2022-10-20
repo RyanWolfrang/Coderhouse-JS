@@ -1,9 +1,9 @@
-//Código el cual se usaría actualmente para realizar ARRAYS de cada gato.
 
 var contadorID = 1;
 var imagen = "src="
 
 class creadorMascotas{
+    //Constructor con los arrays del gato
     constructor(nombreid, nombre, edad, color, peso, imagen){
         this.id = contadorID++
         this.nombreid = nombreid
@@ -21,6 +21,9 @@ mascotas.push(new creadorMascotas("lena","Lena", 2, "Negro", "3.200", "img/lena-
 mascotas.push(new creadorMascotas("roger","Roger", 8,"Negro", "7.800", "img/lena-gata-de-color-negro.jpeg"));
 mascotas.push(new creadorMascotas("killi","Killi", 2,"Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
 mascotas.push(new creadorMascotas("ganga","Ganga", 2,"ByN", "3.600", "img/lena-gata-de-color-negro.jpeg"));
+
+//FILTROS
+
 
 // //Filtrar por color de gato
 // const filtrarPorColorN = mascotas.filter((mascota) => mascota.color == "Negro");
@@ -42,6 +45,9 @@ mascotas.push(new creadorMascotas("ganga","Ganga", 2,"ByN", "3.600", "img/lena-g
 
 // var mostrarGatos = document.getElementById("gato");
 
+
+//Funciones con botones para seleccionar cada gato
+
 const mascotaSeleccionada = [];
 
 let botonesGatos = document.getElementById("botongatos");
@@ -53,7 +59,7 @@ function detectarGato(){
         <button id="btn${mascota.id}" class="btn btn-primary">${mascota.nombre}</button>
         `;
     }
-    
+
         mascotas.forEach((mascota)=>{
             document.getElementById(`btn${mascota.id}`).addEventListener("click",function(){
                 devolverGatoSeleccionado(mascota);
@@ -66,11 +72,10 @@ detectarGato();
 
 function devolverGatoSeleccionado(mascotaAMostrar){
     mascotaSeleccionada.push(mascotaAMostrar)
-    console.table(mascotaSeleccionada);
-    alert("Seleccionaste a "+mascotaAMostrar.nombre+"!")
+    alert("Seleccionaste a "+mascotaAMostrar.nombre)
 }
 
-
+//Código para descartar / Reutilizar
 
 //     for(const mascota of mascotas){
 //     var gato = document.createElement("div");
