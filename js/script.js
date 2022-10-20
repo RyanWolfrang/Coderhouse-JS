@@ -22,11 +22,6 @@ mascotas.push(new creadorMascotas("roger","Roger", 8,"Negro", "7.800", "img/lena
 mascotas.push(new creadorMascotas("killi","Killi", 2,"Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
 mascotas.push(new creadorMascotas("ganga","Ganga", 2,"ByN", "3.600", "img/lena-gata-de-color-negro.jpeg"));
 
-console.log(mascotas[0])
-console.log(mascotas[1])
-console.log(mascotas[2])
-console.log(mascotas[3])
-
 // //Filtrar por color de gato
 // const filtrarPorColorN = mascotas.filter((mascota) => mascota.color == "Negro");
 // console.log(filtrarPorColorN);
@@ -45,34 +40,26 @@ console.log(mascotas[3])
 // mascotas.sort((a,b) => b.edad - a.edad);
 // console.log(mascotas);
 
-//Esta iteración es lo que se usaría con DOM para no tener un do while todo turbio.
-
-// productos.forEach((producto)=>{
-//     //evento para cada boton
-//     document.getElementById(`btn${producto.id}`).addEventListener("click",function(){
-//         agregarAlCarrito(producto);
-//     });
-// });
-
-var mostrarGatos = document.getElementById("gato");
+// var mostrarGatos = document.getElementById("gato");
 
 const mascotaSeleccionada = [];
 
-let botonesDeGatos = document.getElementById("botongatos");
+let botonesGatos = document.getElementById("botongatos");
 
 function detectarGato(){
     for(const mascota of mascotas){
-        botonesDeGatos.innerHTML += 
+        botonesGatos.innerHTML += 
         `
-        <button id="btn${mascota.id}" class="btn btn-primary">${mascota.id}</button>
+        <button id="btn${mascota.id}" class="btn btn-primary">${mascota.nombre}</button>
         `;
-        
+    }
+    
         mascotas.forEach((mascota)=>{
             document.getElementById(`btn${mascota.id}`).addEventListener("click",function(){
                 devolverGatoSeleccionado(mascota);
             })
         })
-    }
+    
 }
 
 detectarGato();
