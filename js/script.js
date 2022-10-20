@@ -1,6 +1,5 @@
 
 var contadorID = 1;
-var imagen = "src="
 
 class creadorMascotas{
     //Constructor con los arrays del gato
@@ -53,19 +52,17 @@ const mascotaSeleccionada = [];
 let botonesGatos = document.getElementById("botongatos");
 
 function detectarGato(){
-    for(const mascota of mascotas){
-        botonesGatos.innerHTML += 
-        `
-        <button id="btn${mascota.id}" class="btn btn-primary">${mascota.nombre}</button>
-        `;
-    }
+    mascotas.forEach((mascota)=>{
+        let botonNuevo = document.createElement("button")
+        botonNuevo.id = `btn${mascota.id}`
+        botonNuevo.className = "btn btn-primary"
+        botonNuevo.innerText = `${mascota.nombre}`
 
-        mascotas.forEach((mascota)=>{
-            document.getElementById(`btn${mascota.id}`).addEventListener("click",function(){
-                devolverGatoSeleccionado(mascota);
-            })
+        botonNuevo.addEventListener("click",function(){
+            devolverGatoSeleccionado(mascota);
         })
-    
+        botonesGatos.append(botonNuevo)
+    })
 }
 
 detectarGato();
@@ -76,6 +73,13 @@ function devolverGatoSeleccionado(mascotaAMostrar){
 }
 
 //Código para descartar / Reutilizar
+
+
+// botonesGatos.innerHTML +=
+// `
+// <button id="btn${mascota.id}" class="btn btn-primary">${mascota.nombre}</button>
+// `;
+
 
 //     for(const mascota of mascotas){
 //     var gato = document.createElement("div");
