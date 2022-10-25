@@ -6,7 +6,7 @@ class creadorMascotas{
     constructor(nombreid, nombre, edad, color, peso, imagen){
         this.id = contadorID++
         this.nombreid = nombreid
-        this.nombre = nombre.toUpperCase();
+        this.nombre = nombre;
         this.edad = edad;
         this.color = color;
         this.peso = parseFloat(peso);
@@ -16,10 +16,10 @@ class creadorMascotas{
 
 const mascotas = [];
 
-mascotas.push(new creadorMascotas("lena","Lena", 2, "Negro", "3.200", "img/lena-gata-de-color-negro.jpeg"));
-mascotas.push(new creadorMascotas("roger","Roger", 8,"Negro", "7.800", "img/lena-gata-de-color-negro.jpeg"));
-mascotas.push(new creadorMascotas("killi","Killi", 2,"Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
-mascotas.push(new creadorMascotas("ganga","Ganga", 2,"ByN", "3.600", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("LENA","Lena", 2, "Negro", "3.200", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("ROGER","Roger", 8,"Negro", "7.800", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("KILLI","Killi", 2,"Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("GANGA","Ganga", 2,"Blanco y negro", "3.600", "img/lena-gata-de-color-negro.jpeg"));
 
 //FILTROS
 
@@ -56,7 +56,7 @@ function detectarGato(){
         let botonNuevo = document.createElement("button")
         botonNuevo.id = `btn${mascota.id}`
         botonNuevo.className = "btn btn-primary"
-        botonNuevo.innerText = `${mascota.nombre}`
+        botonNuevo.innerText = `${mascota.nombreid}`
 
         botonNuevo.addEventListener("click",function(){
             devolverGatoSeleccionado(mascota);
@@ -67,10 +67,33 @@ function detectarGato(){
 
 detectarGato();
 
+let htmlDeGato = document.getElementById("mostrarGatoSingular")
+
 function devolverGatoSeleccionado(mascotaAMostrar){
+    //Poner un comando para eliminar todo de la array
     mascotaSeleccionada.push(mascotaAMostrar)
-    alert("Seleccionaste a "+mascotaAMostrar.nombre)
+    
+    let claseMostrarGato = document.createElement("div")
+    claseMostrarGato.id = `gatoMostrado`
+    claseMostrarGato.className = "columnas"
+    claseMostrarGato.innerHTML =
+    `
+    <div class="textoizq">
+    <h3>${mascotaAMostrar.nombre}. EDAD: ${mascotaAMostrar.edad} años.</h3>
+        <p>
+            ARRAY CON LA DESC DEL GATOO
+            OOOOOOOOOOOOOOOOOOOOOO
+            OOOOOOOOOOOOOOOOOOO
+        </p>
+    </div>
+    <div class="imgdesktop">
+        <img src="${mascotaAMostrar.imagen}" alt="Foto de Ganga, gato blanco y negro.">
+    </div>
+    `
+    htmlDeGato.append(claseMostrarGato)
 }
+
+
 
 //Código para descartar / Reutilizar
 
