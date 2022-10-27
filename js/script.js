@@ -17,10 +17,10 @@ class creadorMascotas{
 
 const mascotas = [];
 
-mascotas.push(new creadorMascotas("LENA","Lena", 2,"Descripción WIP", "Negro", "3.200", "img/lena-gata-de-color-negro.jpeg"));
-mascotas.push(new creadorMascotas("ROGER","Roger", 8,"Descripción WIP","Negro", "7.800", "img/lena-gata-de-color-negro.jpeg"));
-mascotas.push(new creadorMascotas("KILLI","Killi", 2,"Descripción WIP","Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
-mascotas.push(new creadorMascotas("GANGA","Ganga", 2,"Descripción WIP","Blanco y negro", "3.600", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("LENA","Lena", 2,descLena, "Negro", "3.200", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("ROGER","Roger", 8,descRoger,"Negro", "7.800", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("KILLI","Killi", 2,descKilli,"Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("GANGA","Ganga", 2,descGanga,"Blanco y negro", "3.600", "img/lena-gata-de-color-negro.jpeg"));
 
 //REALIZAR UN JS APARTE CON CADA DESCRIPCIÓN DEL GATO
 
