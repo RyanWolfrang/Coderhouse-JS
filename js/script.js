@@ -22,9 +22,7 @@ mascotas.push(new creadorMascotas("ROGER","Roger", 8,descRoger,"Negro", "7.800",
 mascotas.push(new creadorMascotas("KILLI","Killi", 2,descKilli,"Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
 mascotas.push(new creadorMascotas("GANGA","Ganga", 2,descGanga,"Blanco y negro", "3.600", "img/lena-gata-de-color-negro.jpeg"));
 
-//REALIZAR UN JS APARTE CON CADA DESCRIPCIÓN DEL GATO
-
-//Meter gatos en el local storage directamente stringificados (?)
+//Meter gatos en el local storage directamente stringificados
 localStorage.setItem("mascotas", JSON.stringify(mascotas));
 
 //FILTROS WIP
@@ -99,48 +97,3 @@ function devolverGatoSeleccionado(mascotaAMostrar){
     `
     htmlDeGato.append(claseMostrarGato)
 }
-
-
-
-//Código para descartar / Reutilizar
-
-
-// botonesGatos.innerHTML +=
-// `
-// <button id="btn${mascota.id}" class="btn btn-primary">${mascota.nombre}</button>
-// `;
-
-
-//     for(const mascota of mascotas){
-//     var gato = document.createElement("div");
-//     gato.className="columnas";
-//     gato.innerHTML=
-//     `
-//     <div id="lena">
-//     <div>
-//         <img src=${mascota.imagen} alt="Foto de Lena, gata negra">
-//     </div>
-//     <div class="textoder">
-//         <h3>${mascota.nombre} | EDAD: ${mascota.edad} AÑOS</h3>
-//         <p>
-//         Lena fue una gata la cual estaba siendo dejada de lado por la madre apenas nacer. La gata terminó saliendo VILEF positivo y fue acobijada por nosotros
-//         en lugar de su madre. Con los cuidados pertinentes, esta gata está en el peso de 3 KG, si bien le queda un largo camino por delante
-//         está mostrando sintomas de mejora tanto en su peso, como en su ánimo y estado físico.
-//         </p>
-//     </div>
-//     `;
-//     mostrarGatos.append(gato);
-// }
-
-// let buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
-// if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
-//     alert("Elegiste a "+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.")
-// } else if ((buscarGato == "ROGER") || (buscarGato == "Roger" || (buscarGato == "roger"))){
-//     alert("Elegiste a "+mascotas[1].nombre+" Un gato de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.")
-// } else if ((buscarGato == "KILLI") || (buscarGato == "Killi" || (buscarGato == "killi"))){
-//     alert("Elegiste a "+mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
-// } else if ((buscarGato == "TODOS") || (buscarGato == "Todos" || (buscarGato == "todos"))){
-//     alert("¡Elegiste a todos! ahí van: \n"+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.\n"+
-//     mascotas[1].nombre+" Una gata de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.\n"+
-//     mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
-// }

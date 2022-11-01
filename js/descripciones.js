@@ -1,4 +1,4 @@
-const descLena = "Probando Lena"
-const descRoger = "Probando Roger"
-const descKilli = "Probando Killi"
-const descGanga = "Probando Ganga"
+const descLena = "Acá va la descripción de Lena"
+const descRoger = "Acá va la descripción de Roger"
+const descKilli = "Acá va la descripción de Killi"
+const descGanga = "Acá va la descripción de Ganga"
