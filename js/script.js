@@ -1,96 +1,99 @@
-//Login temporalmente inhabilitado
 
-// for (i=1;i<=3;i++){
-//     var user = prompt("Ingrese su nombre de usuario.");
-//     var pass = prompt("Ingrese su contraseña.");
-//     if ((user=="admin")&&(pass=="admin") || (user=="persona")&&(pass=="random")){
-//         alert("Bienvenido " + user);
-//         break;
-//     }else{
-//         alert("Usuario o contraseña equivocados. Te quedan "+(3-i)+" intentos");
-//     }
-// }
-
-//Con el uso de objetos se implementaría otro tipo de función para construir un objeto llamado Gato
-//y cuando se mueta meter HTML en el JS, esto devolvería una imagen del gato que se elija
-//Sin una constante do while o while, sino con un botón.
-
-//Código el cual se usaría actualmente para realizar ARRAYS de cada gato.
-
-let contadorID = 1;
+var contadorID = 1;
 
 class creadorMascotas{
-    constructor(nombre, edad, color, peso){
+    //Constructor con los arrays del gato
+    constructor(nombreid, nombre, edad, descripcion, color, peso, imagen){
         this.id = contadorID++
+        this.nombreid = nombreid
         this.nombre = nombre;
         this.edad = edad;
+        this.descripcion = descripcion;
         this.color = color;
         this.peso = parseFloat(peso);
+        this.imagen = imagen
     }
 }
+
 const mascotas = [];
 
-mascotas.push(new creadorMascotas("Lena", 2, "Negro", "3.200"));
-mascotas.push(new creadorMascotas("Roger", 8, "Negro", "7.800"));
-mascotas.push(new creadorMascotas("Killi", 2, "Tricolor", "3.800"));
+mascotas.push(new creadorMascotas("LENA","Lena", 2,descLena, "Negro", "3.200", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("ROGER","Roger", 8,descRoger,"Negro", "7.800", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("KILLI","Killi", 2,descKilli,"Tricolor", "3.800", "img/lena-gata-de-color-negro.jpeg"));
+mascotas.push(new creadorMascotas("GANGA","Ganga", 2,descGanga,"Blanco y negro", "3.600", "img/lena-gata-de-color-negro.jpeg"));
 
-console.log(mascotas[0].nombre)
-console.log(mascotas[1].nombre)
-console.log(mascotas[2].nombre)
+//Meter gatos en el local storage directamente stringificados
+localStorage.setItem("mascotas", JSON.stringify(mascotas));
 
-do{
-    var buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
-if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
-    alert("Elegiste a "+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" años de edad.")
-} else if ((buscarGato == "ROGER") || (buscarGato == "Roger" || (buscarGato == "roger"))){
-    alert("Elegiste a "+mascotas[1].nombre+" Un gato de color "+mascotas[1].color+" con "+mascotas[1].edad+" años de edad.")
-} else if ((buscarGato == "KILLI") || (buscarGato == "Killi" || (buscarGato == "killi"))){
-    alert("Elegiste a "+mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" años de edad.")
-} else if ((buscarGato == "TODOS") || (buscarGato == "Todos" || (buscarGato == "todos"))){
-    alert("¡Elegiste a todos! ahí van: \n"+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" años de edad.\n"+
-    mascotas[1].nombre+" Una gata de color "+mascotas[1].color+" con "+mascotas[1].edad+" años de edad.\n"+
-    mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" años de edad.")
-}}while (buscarGato != "FIN")
+//FILTROS WIP
 
+// //Filtrar por color de gato
+// const filtrarPorColorN = mascotas.filter((mascota) => mascota.color == "Negro");
+// console.log(filtrarPorColorN);
+// const filtrarPorColorT = mascotas.filter((mascota) => mascota.color == "Tricolor");
+// console.log(filtrarPorColorT);
+// const filtrarPorColorG = mascotas.filter((mascota) => mascota.color == "Gris");
+// console.log(filtrarPorColorG);
+// const filtrarPorColorBN = mascotas.filter((mascota) => mascota.color == "Blanco y negro");
+// console.log(filtrarPorColorBN);
 
-//Filtrar por color de gat
-//Gatos negros
-const filtrarPorColorN = mascotas.filter((mascota) => mascota.color == "Negro");
-console.log(filtrarPorColorN);
+// //Más jovenes a más viejos
+// mascotas.sort((a,b) => a.edad - b.edad);
+// console.log(mascotas);
 
-//Gatos tricolor
-const filtrarPorColorT = mascotas.filter((mascota) => mascota.color == "Tricolor");
-console.log(filtrarPorColorT);
+// //Más viejos a jovenes
+// mascotas.sort((a,b) => b.edad - a.edad);
+// console.log(mascotas);
 
-//Gatos grises
-const filtrarPorColorG = mascotas.filter((mascota) => mascota.color == "Gris");
-console.log(filtrarPorColorG);
+// Parsear animales para poder usar en el código
+var animalesLocales = JSON.parse(localStorage.getItem("mascotas"));
 
-//Gatos blancos y negros
-const filtrarPorColorBN = mascotas.filter((mascota) => mascota.color == "Blanco y negro");
-console.log(filtrarPorColorBN);
+const mascotaSeleccionada = [];
 
-//Más jovenes a más viejos
-mascotas.sort((a,b) => a.edad - b.edad);
-console.log(mascotas);
+let botonesGatos = document.getElementById("botongatos");
 
-//Más viejos a jovenes
-mascotas.sort((a,b) => b.edad - a.edad);
-console.log(mascotas);
+function detectarGato(){
+    animalesLocales.forEach((mascota)=>{
+        //Crear boton | Darle id al botón | Darle clase al botón | Darle el nombre de cada gato al botón.
+        let botonNuevo = document.createElement("button")
+        botonNuevo.id = `btn${mascota.id}`
+        botonNuevo.className = "btn btn-primary"
+        botonNuevo.innerText = `${mascota.nombreid}`
 
-//Esta iteración es lo que se usaría con DOM para no tener un do while todo turbio.
-/*
-let buscarGato = prompt("Ingrese el nombre del gato (Ingrese FIN para cerrar)");
-if((buscarGato == "LENA") || (buscarGato == "Lena" || (buscarGato == "lena"))){
-    alert("Elegiste a "+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.")
-} else if ((buscarGato == "ROGER") || (buscarGato == "Roger" || (buscarGato == "roger"))){
-    alert("Elegiste a "+mascotas[1].nombre+" Un gato de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.")
-} else if ((buscarGato == "KILLI") || (buscarGato == "Killi" || (buscarGato == "killi"))){
-    alert("Elegiste a "+mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
-} else if ((buscarGato == "TODOS") || (buscarGato == "Todos" || (buscarGato == "todos"))){
-    alert("¡Elegiste a todos! ahí van: \n"+mascotas[0].nombre+" Una gata de color "+mascotas[0].color+" con "+mascotas[0].edad+" de edad.\n"+
-    mascotas[1].nombre+" Una gata de color "+mascotas[1].color+" con "+mascotas[1].edad+" de edad.\n"+
-    mascotas[2].nombre+" Una gata de color "+mascotas[2].color+" con "+mascotas[2].edad+" de edad.")
-} else {
-    alert("Input inválido. Intentá de nuevo")
-}*/
+        botonNuevo.addEventListener("click",function(){
+            //Dinamitar completamente el HTML donde se muestran los gatos para que no se amontonen.
+            mostrarGatoSingular.innerHTML = ""
+            //La función SIEMPRE va a tener que ir abajo por el efecto cascada.
+            devolverGatoSeleccionado(mascota);
+        })
+        botonesGatos.append(botonNuevo)
+    })
+}
+
+detectarGato();
+
+let htmlDeGato = document.getElementById("mostrarGatoSingular")
+
+function devolverGatoSeleccionado(mascotaAMostrar){
+
+    //Agrega la mascota seleccionada a este array
+    mascotaSeleccionada.push(mascotaAMostrar)
+    
+    //Crear un div | Darle id | Darle clase | HTML para mostrar al gato
+    let claseMostrarGato = document.createElement("div")
+    claseMostrarGato.id = `gatoMostrado`
+    claseMostrarGato.className = "columnas"
+    claseMostrarGato.innerHTML =
+    `
+    <div class="textoizq">
+    <h3>${mascotaAMostrar.nombre}. EDAD: ${mascotaAMostrar.edad} años.</h3>
+        <p>
+            ${mascotaAMostrar.descripcion}
+        </p>
+    </div>
+    <div class="imgdesktop">
+        <img src="${mascotaAMostrar.imagen}" alt="Foto de Ganga, gato blanco y negro.">
+    </div>
+    `
+    htmlDeGato.append(claseMostrarGato)
+}
