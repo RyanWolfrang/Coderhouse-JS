@@ -1,0 +1,40 @@
+
+{
+    "mascotas": [{
+            "id": 1,
+            "nombre": "Lena",
+            "edad": 2,
+            "descripcion": "ASD",
+            "color": "Negro",
+            "peso": 3.400,
+            "imagen": "img/lena-gata-de-color-negro.jpeg"
+        },
+        {
+            "id": 2,
+            "nombre": "Roger",
+            "edad": 8,
+            "descripcion": "ASD",
+            "color": "Negro",
+            "peso": 7.800,
+            "imagen": "img/lena-gata-de-color-negro.jpeg"
+        },
+        {
+            "id": 3,
+            "nombre": "Killi",
+            "edad": 2,
+            "descripcion": "ASD",
+            "color": "Tricolor",
+            "peso": 3.800,
+            "imagen": "img/lena-gata-de-color-negro.jpeg"
+        },
+        {
+            "id": 4,
+            "nombre": "Killi",
+            "edad": 2,
+            "descripcion": "ASD",
+            "color": "Blanco y Negro",
+            "peso": 3.600,
+            "imagen": "img/lena-gata-de-color-negro.jpeg"
+        }
+    ]
+}

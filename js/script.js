@@ -25,26 +25,6 @@ mascotas.push(new creadorMascotas("GANGA","Ganga", 2,descGanga,"Blanco y negro",
 //Meter gatos en el local storage directamente stringificados
 localStorage.setItem("mascotas", JSON.stringify(mascotas));
 
-//FILTROS WIP
-
-// //Filtrar por color de gato
-// const filtrarPorColorN = mascotas.filter((mascota) => mascota.color == "Negro");
-// console.log(filtrarPorColorN);
-// const filtrarPorColorT = mascotas.filter((mascota) => mascota.color == "Tricolor");
-// console.log(filtrarPorColorT);
-// const filtrarPorColorG = mascotas.filter((mascota) => mascota.color == "Gris");
-// console.log(filtrarPorColorG);
-// const filtrarPorColorBN = mascotas.filter((mascota) => mascota.color == "Blanco y negro");
-// console.log(filtrarPorColorBN);
-
-// //Más jovenes a más viejos
-// mascotas.sort((a,b) => a.edad - b.edad);
-// console.log(mascotas);
-
-// //Más viejos a jovenes
-// mascotas.sort((a,b) => b.edad - a.edad);
-// console.log(mascotas);
-
 // Parsear animales para poder usar en el código
 var animalesLocales = JSON.parse(localStorage.getItem("mascotas"));
 
@@ -78,6 +58,11 @@ function devolverGatoSeleccionado(mascotaAMostrar){
 
     //Agrega la mascota seleccionada a este array
     mascotaSeleccionada.push(mascotaAMostrar)
+
+    Toastify({
+        text:"Mostrando gato seleccionado",
+        duration: 1500,
+    }).showToast();
     
     //Crear un div | Darle id | Darle clase | HTML para mostrar al gato
     let claseMostrarGato = document.createElement("div")
@@ -97,3 +82,34 @@ function devolverGatoSeleccionado(mascotaAMostrar){
     `
     htmlDeGato.append(claseMostrarGato)
 }
+
+function actualizarReloj() {
+    let reloj = document.getElementById('reloj');
+    let date = new Date(); //Obtener data de la fecha
+
+    //Obtener data de la hora | minutos | segundos
+    let horas = date.getHours();
+    if (horas < 10) horas = '0' + horas;
+    reloj.children[0].innerHTML = horas;
+
+    let minutos = date.getMinutes();
+    if (minutos < 10) minutos = '0' + minutos;
+    reloj.children[1].innerHTML = minutos;
+
+    let segundos = date.getSeconds();
+    if (segundos < 10) segundos = '0' + segundos;
+    reloj.children[2].innerHTML = segundos;
+}
+
+let temporizadorID;
+
+//Empezar directo el reloj
+function empezarReloj() { 
+    if (!temporizadorID) { //Intervalo para ir actualizando los segundos del réloj
+        temporizadorID = setInterval(actualizarReloj, 1000);
+}
+    actualizarReloj();
+}
+
+empezarReloj();
+
