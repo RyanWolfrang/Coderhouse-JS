@@ -16,7 +16,6 @@ function mostrarGatos(){
                 botonNuevo.addEventListener("click",function(){
                     //Dinamitar completamente el HTML donde se muestran los gatos para que no se amontonen.
                     mostrarGatoSingular.innerHTML = ""
-                    //Esta función SIEMPRE abajo
                     devolverGatoSeleccionado(mascota);
                 })
                 botonesGatos.append(botonNuevo)
