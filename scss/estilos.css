@@ -223,6 +223,9 @@ button span {
   margin-top: 30px;
   width: 1200px;
 }
+form{
+  padding-bottom: 180px;
+}
 
 /* Footer */
 .redesmobile {
