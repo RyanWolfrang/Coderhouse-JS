@@ -65,20 +65,17 @@
     <body>
         <div class="container">
             <div class="row">
-                <form role="form">
+                <form role="form" id="formulario">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="username" id="username"  required="required" placeholder="Nombre completo...">
+                        <input type="text" class="form-control" name="username" id="name"  required="required" placeholder="Nombre completo...">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="usermail" id="usermail" placeholder="E-Mail..." required="required">
+                        <input type="email" class="form-control" name="usermail" id="email" placeholder="E-Mail..." required="required">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject"  required="required" placeholder="Asunto...">
+                        <textarea name="mensaje" id="body"  class="form-control" rows="4" placeholder="Escriba aquí..."  required="required"></textarea>
                     </div>
-                    <div class="form-group">
-                        <textarea name="message" id="message"  class="form-control" rows="4" placeholder="Escriba aquí..."  required="required"></textarea>
-                    </div>
-                    <button type="submit" value="Enviar" class="btn btn-primary">
+                    <button type="button" value="Enviar" onclick="enviarFormulario()" class="btn btn-primary">
                         <span><strong>Enviar</strong></span>
                     </button>
                 </form>
@@ -131,5 +128,7 @@
     <script>
         AOS.init();
     </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/formulario.js"></script>
 </main>
 </html>
