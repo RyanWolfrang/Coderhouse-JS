@@ -1,7 +1,11 @@
 
 function enviarFormulario(){
     const URLPOST="https://jsonplaceholder.typicode.com/posts";
-    const datosFormulario = JSON.stringify($("#formulario").serializeArray());
+    const datosFormulario = {
+        userId:1,
+        title:"Formulario envíado",
+        body:"Cuerpo del formulario"
+    }
     fetch(URLPOST,{
         method:"POST",
         body:JSON.stringify(datosFormulario),

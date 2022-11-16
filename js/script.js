@@ -89,3 +89,5 @@ function empezarReloj() {
 }
 
 empezarReloj();
+
+/* Formulario de contacto.html*/
